@@ -1,19 +1,19 @@
-# 💇‍♀️ Portafolio Profesional - Yennely Sharina Morillo Marmolejos
+# 🎨 Portafolio Profesional - Yennely Sharina Morillo Marmolejos
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub-Pages-brightgreen)](https://yennelymorillo.github.io/MY-PORTFOLIO/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ## 🌟 Sobre el Portafolio
 
-Portafolio web profesional de **Yennely Sharina Morillo Marmolejos**, peluquera profesional especializada en belleza y estilismo. Este sitio web muestra su experiencia, servicios, habilidades y galería de trabajos realizados.
+Portafolio web profesional de **Yennely Sharina Morillo Marmolejos**, diseñadora gráfica, community manager y filmmaker especializada en creación de contenido visual, audiovisual y estrategias de marketing digital. Este sitio web muestra su experiencia, servicios, proyectos y habilidades técnicas.
 
 ### ✨ Características
 
-- 🎨 Diseño moderno y elegante con colores en tonos rosados
+- 🎨 Diseño moderno y profesional con colores morados (#7b2cbf, #5a189a)
 - 📱 Totalmente responsive (móvil, tablet, desktop)
 - 💫 Animaciones suaves y efectos interactivos
 - 📧 Formulario de contacto funcional
-- 🖼️ Galería de portafolio para mostrar trabajos
+- 🖼️ Galería de portafolio para proyectos
 - ⚡ Optimizado para rendimiento y SEO
 
 ## 🛠️ Tecnologías Utilizadas
@@ -23,6 +23,27 @@ Portafolio web profesional de **Yennely Sharina Morillo Marmolejos**, peluquera 
 - **JavaScript** - Interactividad y funcionalidades
 - **Font Awesome** - Iconos profesionales
 - **Web3Forms** - Sistema de formularios
+
+## 👩‍💼 Perfil Profesional
+
+**Yennely Sharina Morillo Marmolejos** es una creativa con experiencia en:
+
+- 🎨 **Diseño Gráfico**: Illustrator, Photoshop, InDesign, After Effects
+- 📱 **Community Management**: Estrategia de contenido y gestión de redes sociales
+- 🎬 **Filmmaking**: Producción y edición de video profesional
+- 💻 **Desarrollo Web Junior**: PHP, MySQL, HTML/CSS
+
+### 💼 Experiencia Laboral
+
+- **Instituto de Aviación Civil (IDAC)** - Comunicación audiovisual institucional
+- **W & W Asesores Legales** - Rediseño de marca y contenido visual
+- **Prolabor RD** - Publicidad y contenido audiovisual
+
+### 🎓 Formación Académica
+
+- **Licenciatura en Publicidad** - Universidad APEC (En curso)
+- **Bachiller Técnico en Multimedia y Gráfica** - Instituto Técnico Salesiano (ITESA)
+- **Inglés Intermedio** - Instituto Cultural Dominico Americano
 
 ## 📂 Estructura del Proyecto
 
@@ -108,12 +129,22 @@ Modifica las variables CSS en `styles.css`:
 
 ## 📱 Secciones del Portafolio
 
-1. **Hero** - Presentación principal con llamado a la acción
-2. **Sobre Mí** - Biografía profesional y estadísticas
-3. **Servicios** - Todos los servicios ofrecidos con detalles
-4. **Portafolio** - Galería de trabajos realizados
-5. **Habilidades** - Especialidades y certificaciones
-6. **Testimonios** - Opiniones de clientas satisfechas
+1. **Hero** - Presentación profesional con llamado a la acción
+2. **Sobre Mí** - Perfil profesional, formación y experiencia
+3. **Servicios** - 6 servicios profesionales:
+   - Diseño Gráfico
+   - Community Manager
+   - Producción Audiovisual
+   - Marketing Digital
+   - Fotografía de Producto
+   - Desarrollo Web Básico
+4. **Portafolio** - Galería de proyectos realizados
+5. **Habilidades** - Herramientas y tecnologías:
+   - Adobe Creative Suite (Illustrator, Photoshop, After Effects, InDesign)
+   - Marketing Digital y Community Management
+   - Filmmaking y edición de video
+   - Desarrollo web (PHP, MySQL)
+6. **Testimonios** - Referencias de clientes satisfechos
 7. **Contacto** - Formulario y datos de contacto
 8. **Footer** - Información adicional y redes sociales
 
@@ -151,11 +182,11 @@ Si encuentras algún error o tienes sugerencias:
 
 **Yennely Sharina Morillo Marmolejos**
 
-- 📧 Email: sharina@example.com
-- 📱 WhatsApp: +1 (809) 555-1234
+- 📧 Email: yennelymorillo4@gmail.com
+- 📱 WhatsApp: https://wa.link/k5zk17
 - 📍 Ubicación: Santo Domingo, República Dominicana
-- 💼 Instagram: [@sharina_peluqueria](https://instagram.com)
-- 👍 Facebook: [Sharina Peluquería](https://facebook.com)
+- 💼 LinkedIn: [Yennely Morillo](https://www.linkedin.com/in/yennely-morillo-096a66314/)
+- 📷 Instagram: @sharina_design
 
 ## 📄 Licencia
 
@@ -165,10 +196,10 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 
 - Font Awesome por los iconos
 - Web3Forms por el servicio de formularios
-- La comunidad de desarrollo web por la inspiración
+- La comunidad de diseñadores y desarrolladores
 
 ---
 
-**💖 Hecho con pasión por Yennely Sharina Morillo Marmolejos**
+**💜 Hecho con pasión por Yennely Sharina Morillo Marmolejos**
 
 ⭐ Si te gusta este portafolio, no olvides darle una estrella al repositorio!
