@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Yennely Sharina Morillo Marmolejos - Peluquera Profesional | Especialista en Belleza y Estilismo">
+    <title>Yennely Sharina Morillo - Peluquera Profesional</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Modal Formulario */
+        .contact-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        .contact-modal.active {
+            display: flex;
+        }
+        .modal-content {
+            background: var(--dark-card);
+            padding: 2.5rem;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 20px 60px rgba(255, 182, 193, 0.3);
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+        @keyframes modalSlideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.8rem;
+            cursor: pointer;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(90deg);
+        }
+        .modal-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(255, 182, 193, 0.05);
+            border: 1px solid rgba(255, 182, 193, 0.2);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: rgba(255, 182, 193, 0.1);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 182, 193, 0.4);
+        }
+        .form-success {
+            background: rgba(255, 182, 193, 0.1);
+            border: 1px solid var(--primary-color);
+            padding: 1rem;
+            border-radius: 10px;
+            color: var(--primary-color);
+            text-align: center;
+            margin-top: 1rem;
+            display: none;
+        }
+        .form-success.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-scissors" style="font-size: 2rem; color: var(--primary-color);"></i>
+                <span style="margin-left: 10px; font-weight: 700; font-size: 1.2rem;">Sharina</span>
+            </div>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="#home">Inicio</a></li>
+                    <li><a href="#about">Sobre Mí</a></li>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#portfolio">Portafolio</a></li>
+                    <li><a href="#skills">Habilidades</a></li>
+                </ul>
+                <button onclick="openContactModal()" class="btn-nav-cta" style="border: none; cursor: pointer;">
+                    <i class="fas fa-calendar-check"></i> Reserva Tu Cita
+                </button>
+            </div>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-avatar">
+                <div class="avatar-circle">
+                    <i class="fas fa-user-circle" style="font-size: 8rem; color: var(--primary-color);"></i>
+                </div>
+            </div>
+            <h1 class="hero-title">Yennely Sharina Morillo Marmolejos</h1>
+            <p class="subtitle">Peluquera Profesional | Especialista en Belleza y Estilismo</p>
+            <div class="hero-cta">
+                <div class="cta-badge">
+                    <i class="fas fa-star"></i> Disponible para Nuevas Clientas
+                </div>
+                <h2 class="cta-title">¿Buscas tu mejor versión?</h2>
+                <p class="cta-text">Te ayudo a encontrar tu estilo perfecto con técnicas profesionales y atención personalizada</p>
+                <div class="hero-buttons">
+                    <button onclick="openContactModal()" class="btn btn-cta" style="border: none; cursor: pointer;">💇‍♀️ Reserva Ahora</button>
+                    <a href="#portfolio" class="btn btn-secondary">Ver Mi Trabajo</a>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://wa.me/18095551234" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:sharina@example.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Sobre Mí</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Soy <strong>Yennely Sharina Morillo Marmolejos</strong>, peluquera profesional con una pasión genuina 
+                        por ayudar a mis clientas a descubrir y realzar su belleza natural. Mi objetivo va más allá de un simple 
+                        corte o tratamiento: busco que cada mujer que se sienta en mi silla encuentre <strong>confianza, estilo 
+                        y la mejor versión de sí misma</strong>.
+                    </p>
+                    <p>
+                        Con años de experiencia en el sector de la belleza, me especializo en <strong>cortes modernos, coloración 
+                        avanzada, tratamientos capilares, peinados para eventos especiales y asesoramiento de imagen personalizado</strong>. 
+                        Cada servicio que ofrezco está diseñado para adaptarse a las necesidades únicas de cada clienta, considerando 
+                        su tipo de cabello, estilo de vida y preferencias personales.
+                    </p>
+                    <p>
+                        Me mantengo constantemente actualizada con las últimas tendencias y técnicas del mundo de la peluquería, 
+                        porque creo que la educación continua es clave para ofrecer resultados excepcionales. Mi compromiso es 
+                        brindarte un servicio de calidad en un ambiente cómodo y profesional, donde puedas relajarte y disfrutar 
+                        de tu transformación.
+                    </p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <h3>5+</h3>
+                            <p>Años de Experiencia</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>500+</h3>
+                            <p>Clientas Satisfechas</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>100%</h3>
+                            <p>Dedicación</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-cut"></i> Servicios Profesionales
+                </div>
+                <h2 class="section-title">Mis Servicios</h2>
+                <p class="section-description">
+                    Ofrezco una amplia gama de servicios especializados para que encuentres exactamente lo que necesitas
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3>Cortes Modernos</h3>
+                    <p>Cortes personalizados que se adaptan a tu rostro, estilo y personalidad. Desde clásicos hasta las últimas tendencias.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Asesoramiento personalizado</li>
+                        <li><i class="fas fa-check"></i> Técnicas avanzadas</li>
+                        <li><i class="fas fa-check"></i> Acabados profesionales</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Coloración Profesional</h3>
+                    <p>Transformación de color con productos de alta calidad. Balayage, mechas, tintes completos y correcciones de color.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Productos premium</li>
+                        <li><i class="fas fa-check"></i> Técnicas de moda</li>
+                        <li><i class="fas fa-check"></i> Cuidado del cabello</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3>Tratamientos Capilares</h3>
+                    <p>Restauración y nutrición profunda para todo tipo de cabello. Keratina, botox capilar, hidratación y más.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Productos profesionales</li>
+                        <li><i class="fas fa-check"></i> Resultados duraderos</li>
+                        <li><i class="fas fa-check"></i> Recuperación capilar</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Peinados para Eventos</h3>
+                    <p>Peinados elegantes para bodas, graduaciones, fiestas y ocasiones especiales. Estilos que duran todo el día.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Diseños personalizados</li>
+                        <li><i class="fas fa-check"></i> Larga duración</li>
+                        <li><i class="fas fa-check"></i> Pruebas previas disponibles</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3>Asesoramiento de Imagen</h3>
+                    <p>Consulta personalizada para encontrar el estilo que mejor se adapta a ti, considerando tu rostro y personalidad.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Análisis facial</li>
+                        <li><i class="fas fa-check"></i> Recomendaciones expertas</li>
+                        <li><i class="fas fa-check"></i> Tendencias actuales</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>Styling y Blowout</h3>
+                    <p>Peinados profesionales con secador para un look impecable. Ondas, liso perfecto o volumen espectacular.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Técnicas profesionales</li>
+                        <li><i class="fas fa-check"></i> Protección térmica</li>
+                        <li><i class="fas fa-check"></i> Acabado de salón</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-images"></i> Galería de Transformaciones
+                </div>
+                <h2 class="section-title">Mi Portafolio</h2>
+                <p class="section-description">
+                    Algunos de mis trabajos más recientes - Antes y después que hablan por sí solos
+                </p>
+            </div>
+
+            <div class="portfolio-gallery">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <i class="fas fa-image" style="font-size: 3rem; color: var(--primary-color);"></i>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3>Transformación de Color</h3>
+                        <p>Balayage rubio miel con mechas estratégicas</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <i class="fas fa-image" style="font-size: 3rem; color: var(--primary-color);"></i>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3>Corte Bob Moderno</h3>
+                        <p>Corte estructurado con acabado profesional</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <i class="fas fa-image" style="font-size: 3rem; color: var(--primary-color);"></i>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3>Peinado de Novia</h3>
+                        <p>Recogido elegante con detalles florales</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <i class="fas fa-image" style="font-size: 3rem; color: var(--primary-color);"></i>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3>Tratamiento Keratina</h3>
+                        <p>Antes y después de tratamiento alisador</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <i class="fas fa-image" style="font-size: 3rem; color: var(--primary-color);"></i>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3>Coloración Fantasía</h3>
+                        <p>Tonos vibrantes con técnica ombré</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <i class="fas fa-image" style="font-size: 3rem; color: var(--primary-color);"></i>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3>Corte en Capas</h3>
+                        <p>Movimiento y volumen natural</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-award"></i> Especialidades
+                </div>
+                <h2 class="section-title">Mis Habilidades</h2>
+                <p class="section-description">
+                    Áreas en las que me especializo para brindarte el mejor servicio
+                </p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-scissors"></i> Técnicas de Corte</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span>Corte Clásico y Moderno</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Corte en Capas</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Texturización</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-palette"></i> Colorimetría</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span>Balayage y Mechas</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Corrección de Color</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Tintes Fantasía</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-spa"></i> Tratamientos</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span>Keratina y Alisados</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Hidratación Profunda</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 93%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Botox Capilar</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 87%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-crown"></i> Peinados</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span>Peinados de Novia</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 94%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Recogidos Elegantes</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 91%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Styling Profesional</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 89%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="certifications">
+                <h3 class="certifications-title">Formación y Certificaciones</h3>
+                <div class="cert-grid">
+                    <div class="cert-item">
+                        <i class="fas fa-certificate"></i>
+                        <span>Certificación en Colorimetría Avanzada</span>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fas fa-certificate"></i>
+                        <span>Especialización en Tratamientos Capilares</span>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fas fa-certificate"></i>
+                        <span>Curso de Peinados para Eventos</span>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fas fa-certificate"></i>
+                        <span>Técnicas de Corte Contemporáneo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-comments"></i> Testimonios
+                </div>
+                <h2 class="section-title">Lo Que Dicen Mis Clientas</h2>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Sharina es increíble! Transformó completamente mi cabello. Su profesionalismo y atención al detalle son excepcionales. 100% recomendada!"</p>
+                    <div class="testimonial-author">
+                        <strong>María García</strong>
+                        <span>Cliente Frecuente</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"El mejor lugar para cuidar tu cabello. Sharina realmente sabe lo que hace y siempre me siento como nueva después de cada visita."</p>
+                    <div class="testimonial-author">
+                        <strong>Ana Rodríguez</strong>
+                        <span>Cliente desde 2022</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Hizo el peinado para mi boda y quedó perfecto. Duró todo el día y recibí muchísimos cumplidos. ¡Gracias Sharina!"</p>
+                    <div class="testimonial-author">
+                        <strong>Laura Martínez</strong>
+                        <span>Novia Feliz 2024</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>¿Lista para Tu Transformación?</h2>
+                <p>Agenda tu cita hoy y descubre tu mejor versión</p>
+                <div class="cta-buttons">
+                    <button onclick="openContactModal()" class="btn btn-cta-large" style="border: none; cursor: pointer;">
+                        <i class="fas fa-calendar-check"></i> Reserva Tu Cita Ahora
+                    </button>
+                    <a href="https://wa.me/18095551234" class="btn btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-scissors"></i> Sharina Peluquería</h3>
+                    <p>Tu belleza, mi pasión</p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://wa.me/18095551234" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Horario</h4>
+                    <p><i class="fas fa-clock"></i> Lun - Sáb: 9:00 AM - 7:00 PM</p>
+                    <p><i class="fas fa-clock"></i> Domingo: Con cita previa</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-phone"></i> +1 (809) 555-1234</p>
+                    <p><i class="fas fa-envelope"></i> sharina@example.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Santo Domingo, RD</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Yennely Sharina Morillo Marmolejos. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Contacto -->
+    <div class="contact-modal" id="contactModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeContactModal()">&times;</button>
+            <h3><i class="fas fa-calendar-check"></i> Reserva Tu Cita</h3>
+            <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="TU_ACCESS_KEY_AQUI">
+                <input type="hidden" name="subject" value="Nueva Cita - Portfolio Sharina">
+                <input type="hidden" name="from_name" value="Portfolio Sharina">
+                
+                <div class="form-group">
+                    <label for="name">Nombre Completo *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Teléfono *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Servicio de Interés *</label>
+                    <input type="text" id="service" name="service" placeholder="Ej: Corte y Color" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Mensaje / Detalles Adicionales</label>
+                    <textarea id="message" name="message" placeholder="Cuéntame qué buscas..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    <i class="fas fa-paper-plane"></i> Enviar Solicitud
+                </button>
+
+                <div class="form-success" id="formSuccess">
+                    ¡Mensaje enviado! Te contactaré pronto para confirmar tu cita.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
