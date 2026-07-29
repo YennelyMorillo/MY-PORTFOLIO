@@ -28,7 +28,7 @@ Portafolio web profesional de **Yennely Sharina Morillo Marmolejos**, diseñador
 
 **Yennely Sharina Morillo Marmolejos** es una creativa con experiencia en:
 
-- 🎨 **Diseño Gráfico**: Illustrator, Photoshop, InDesign, After Effects
+- 🎨 **Diseño Gráfico**: Illustrator, Photoshop, InDesign, After Effects, Canva y CapCut
 - 📱 **Community Management**: Estrategia de contenido y gestión de redes sociales
 - 🎬 **Filmmaking**: Producción y edición de video profesional
 - 💻 **Desarrollo Web Junior**: PHP, MySQL, HTML/CSS
@@ -140,7 +140,7 @@ Modifica las variables CSS en `styles.css`:
    - Desarrollo Web Básico
 4. **Portafolio** - Galería de proyectos realizados
 5. **Habilidades** - Herramientas y tecnologías:
-   - Adobe Creative Suite (Illustrator, Photoshop, After Effects, InDesign)
+   - Adobe Creative Suite (Illustrator, Photoshop, After Effects, InDesign), Canva y CapCut
    - Marketing Digital y Community Management
    - Filmmaking y edición de video
    - Desarrollo web (PHP, MySQL)
