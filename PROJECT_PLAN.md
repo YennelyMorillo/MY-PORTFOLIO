@@ -31,3 +31,4 @@
 
 - 2026-07-29: Added CapCut and Canva to the about copy, skills list, and README skill summary.
 - 2026-07-29: Set Marketing Digital and Produccion Audiovisual skill bars to 100%, leaving Fotografia unchanged.
+- 2026-07-29: Updated the about collaboration paragraph and renamed the editing tools skill card title.
